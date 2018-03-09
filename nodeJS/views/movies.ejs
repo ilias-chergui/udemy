@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../public/style.css">
+    <title>Movies</title>
+</head>
+<body>
+    <% include ./partials/header %>
+
+    <div class="container">
+        <div class="info">
+            <h2> <%= title1 %> </h2>
+    
+            <% for( movie of movies) { %>
+                <p>
+                    <%= movie.title %> (<%= movie.year%>)
+                </p>
+            <% } %>
+        </div>
+
+        <div class="form">
+            <h2> <%= title2 %> </h2>
+            <form action="/movies" method="POST">
+                <label for="movieTitle">Titre du film: </label>
+                <input type="text" name="movieTitle" id="movieTitle">
+
+                <label for="movieYear">L'année du film: </label>
+                <input type="text" name="movieYear" id="movieYear">
+
+                <button type="submit">Ajouter</button>
+            </form>
+        </div>
+
+    </div>
+
+    <% include ./partials/footer %>
+</body>
+</html>

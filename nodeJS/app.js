@@ -5,6 +5,7 @@ const app = express();
 const urlencoded = bodyParser.urlencoded({ extended: false });
 const PORT = 3000;
 
+let frenchMovies = [];
 
 app.use('/public', express.static('public'));
 
@@ -19,7 +20,8 @@ app.get('/', (req, res) => {
 app.get('/movies', (req, res) => {
     const title1 = 'Derniers ajouts :';
     const title2 = 'Ajouter des films :';
-    const frenchMovies = [
+    
+    frenchMovies = [
         { title: 'Harry Potter 1', year: 2001},
         { title: 'Harry Potter 2', year: 2003},
         { title: 'Transformers', year: 2005},
@@ -31,7 +33,18 @@ app.get('/movies', (req, res) => {
 });
 
 app.post('/movies', urlencoded, (req, res) => {
-    console.log(req.body);
+    console.log('Le titre : ', req.body.movieTitle);
+    console.log('L\'année : ', req.body.movieYear);
+
+    const newMovie = { title : req.body.movieTitle, year : req.body.movieYear };
+    frenchMovies.push(newMovie);
+    console.log(frenchMovies);
+    
+
+    // // Cette autre façon de push va remplacer l'ancien tableau par un nouveau = XXX = [...XXX]
+    // // tout en ajoutant le nouvel objet -> [... , newObjet]
+    // frenchMovies = [...frenchMovies, newMovie];
+
     res.sendStatus(201);
 });
 

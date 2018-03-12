@@ -21,7 +21,7 @@
             <% } %>
         </div>
 
-        <div class="french-movie">
+        <div class="french-movies">
             <h2> <%= title2 %> </h2>
             <form action="/movies" method="POST">
                 <label for="movieTitle">Titre du film: </label>
@@ -69,7 +69,7 @@
 
                 newMovieDiv.innerHTML = `${movieTitle} (${movieYear})`;
 
-                document.querySelector('.french-movie').appendChild(newMovieDiv);
+                document.querySelector('.french-movies').appendChild(newMovieDiv);
                 form.reset();
             }
         }

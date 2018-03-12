@@ -20,8 +20,8 @@ app.get('/movies', (req, res) => {
     const title1 = 'Derniers ajouts :';
     const title2 = 'Ajouter des films :';
     const frenchMovies = [
-        { title: 'babar et ses amis', year: 1998},
-        { title: 'OuiOui et son taxi', year: 2000},
+        { title: 'Harry Potter 1', year: 2001},
+        { title: 'Harry Potter 2', year: 2003},
         { title: 'Transformers', year: 2005},
         { title: 'Transformers 2', year: 2006},
         { title: 'Transformers 3', year: 2007}

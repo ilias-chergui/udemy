@@ -55,15 +55,11 @@
                     console.log('request failled', error);
                 })
             }
-            else {
-            //     jQuery();
-            //     XMLHttpRequest();
-            }
         }
 
         function checkStatus(response) {
             if (response.status >= 200 && response.status < 300) {
-                let newMovieDiv = document.createElement('div');
+                let newMovieDiv = document.createElement('p');
                 const movieTitle = document.getElementById('movieTitle').value;
                 const movieYear = document.getElementById('movieYear').value;
 

@@ -1,8 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const multer = require('multer');
 
 const app = express();
 const urlencoded = bodyParser.urlencoded({ extended: false });
+const upload = multer();
+
 const PORT = 3000;
 
 let frenchMovies = [];
@@ -32,20 +35,17 @@ app.get('/movies', (req, res) => {
     res.render('movies', { movies: frenchMovies, title1: title1, title2: title2});
 });
 
-app.post('/movies', urlencoded, (req, res) => {
-    console.log('Le titre : ', req.body.movieTitle);
-    console.log('L\'année : ', req.body.movieYear);
+app.post('/movies', upload.fields([]), (req, res) => {
+    if (!req.body) { // Si pas de body, on renvoi erreur 500
+        return res.sendStatus(500);
+    } else {
+        const formData = req.body;
+        console.log('formData: ', formData);
 
-    const newMovie = { title : req.body.movieTitle, year : req.body.movieYear };
-    frenchMovies.push(newMovie);
-    console.log(frenchMovies);
-    
-
-    // // Cette autre façon de push va remplacer l'ancien tableau par un nouveau = XXX = [...XXX]
-    // // tout en ajoutant le nouvel objet -> [... , newObjet]
-    // frenchMovies = [...frenchMovies, newMovie];
-
-    res.sendStatus(201);
+        const newMovie = { title : req.body.movieTitle, year : req.body.movieYear };
+        frenchMovies = [...frenchMovies, newMovie];
+        res.sendStatus(201);
+    }
 });
 
 app.get('/movies/:id/:title', (req, res) => {

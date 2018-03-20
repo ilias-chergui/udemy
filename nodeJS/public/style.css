@@ -7,33 +7,17 @@ body {
     font-family:Consolas,Monaco,"Andale Mono",monospace;
 }
 
-a {
-    text-decoration: none;
-    cursor: pointer;
-}
-
 .container {
-    padding: 30px;
+    min-height: 80vh;
+    padding: 15px;
     text-align: center;
-    background-color: brown;
+    background-image: url(http://wallpoper.com/images/00/31/33/51/black-background_00313351.jpg);
+    background-size: inherit;
+    color: white;
 }
 
 .info {
-    height: 70vh;
-}
-
-header, footer {
-    background-color: rgba(0, 225, 255, 0.849);
-    height: 5vh;
-    text-align: center;
-    font-size: 25px;
-    padding: 10px;
-}
-
-nav a {
-    text-decoration: underline; 
-    font-weight: bold;
-    color: black;
+    padding: 15px;
 }
 
 .info h2, .formulaire h2  {
@@ -43,4 +27,34 @@ nav a {
 
 .info p {
     line-height: 30px;
+}
+
+/* HEADER */
+
+header {
+    background-color: rgba(0, 225, 255, 0.849);
+    height: 50px;
+    position: relative;
+    text-align: center;
+    font-size: 25px;
+    padding-top: 2%;
+}
+
+nav a {
+    text-decoration: underline; 
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+}
+
+/* FOOTER */
+
+footer {
+    background-color: rgba(0, 225, 255, 0.849);
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    padding-top: 2%;
+    position: absolute;
 }

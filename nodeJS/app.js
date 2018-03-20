@@ -48,6 +48,10 @@ app.post('/movies', upload.fields([]), (req, res) => {
     }
 });
 
+app.get('/movie-search', (req, res) => {
+    res.render('movie-search');
+});
+
 app.get('/movies/:id/:title', (req, res) => {
     const id = req.params.id;
     const title = req.params.title;
